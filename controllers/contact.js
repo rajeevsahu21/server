@@ -38,7 +38,7 @@ const getContact = async (req, res) => {
 
 const getContacts = async (req, res) => {
   try {
-    const { searchTerm } = req.query;
+    const { searchTerm = "" } = req.query;
     const contacts = await Contact.find({
       $or: [
         { name: { $regex: searchTerm, $options: "i" } },
